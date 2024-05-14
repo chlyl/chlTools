@@ -2,6 +2,7 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const { windowConfig } = require('./config')
 const ball = require('./ball')
+const { log } = require('console')
 const html = path.join(__dirname, '../public/index.html')
 require('./ipc')
 var mainWindow = null;
@@ -16,7 +17,10 @@ function createWindow () {
   global.mainWindow = mainWindow;
 
   mainWindow.on('blur',()=>{
-    mainWindow.hide();
+    setTimeout(()=>{
+      mainWindow.hide();
+    },500)
+      
   })
 }
 

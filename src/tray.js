@@ -10,13 +10,15 @@ const trayContextMenu = Menu.buildFromTemplate([ {
   }
 ]);
 tray.on('click', () => {
-  if (global.mainWindow) {
-    global.mainWindow.show();
-  }
+  global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
 })
 tray.setContextMenu(trayContextMenu);
 tray.setToolTip('chlTools');
 
 globalShortcut.register('Ctrl+Space', () => {
   global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
+})
+
+globalShortcut.register('ESC',()=>{
+  global.mainWindow.hide();
 })

@@ -8,5 +8,6 @@ ipcMain.on('moveWindow',(e,message)=>{
 })
 
 ipcMain.on('show',(e,message)=>{
-    global.mainWindow.show();
+    e.preventDefault();
+    global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
 })
