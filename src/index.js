@@ -14,6 +14,10 @@ function createWindow () {
   })
   mainWindow.loadFile(html)
   global.mainWindow = mainWindow;
+
+  mainWindow.on('blur',()=>{
+    mainWindow.hide();
+  })
 }
 
 app.whenReady().then(() => {
@@ -21,7 +25,9 @@ app.whenReady().then(() => {
   ball.createWindow()
   createWindow()
   app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (BrowserWindow.getAllWindows().length === 0){
+      createWindow()
+    } 
   })
 })
 
@@ -30,6 +36,8 @@ app.on('window-all-closed', function () {
 })
 
 
+
+app.commandLine.appendSwitch('wm-window-animations-disabled');
 
 
 

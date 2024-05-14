@@ -1,4 +1,4 @@
-const {Menu, Tray,app} = require('electron')
+const {Menu, Tray,app, BrowserWindow} = require('electron')
 const path = require('path')
 const icon = path.join(__dirname, '../public/image/basketball.ico')
 var tray = new Tray(icon)
@@ -10,7 +10,9 @@ const trayContextMenu = Menu.buildFromTemplate([ {
   }
 ]);
 tray.on('click', () => {
-  global.mainWindow.show();
+  if (global.mainWindow) {
+    global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
+  }
 })
 tray.setContextMenu(trayContextMenu);
 tray.setToolTip('chlTools');

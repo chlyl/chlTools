@@ -6,3 +6,7 @@ ipcMain.on('moveWindow',(e,message)=>{
     var y = window.getBounds().y;
     window.setBounds({x:x+message.x,y:y+message.y});
 })
+
+ipcMain.on('show',(e,message)=>{
+    global.mainWindow.show();
+})
