@@ -34,12 +34,9 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
-
-
-
+//程序退出前 取消快捷键
+app.on('will-quit',()=>{
+  globalShortcut.unregisterAll();
+})
+// 禁用窗口动画
 app.commandLine.appendSwitch('wm-window-animations-disabled');
-
-
-
-
-
