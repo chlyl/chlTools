@@ -11,7 +11,8 @@ document.getElementById('dragable').addEventListener('mousedown', function (e) {
         //通知客户端移动
         window.electron.ipcRenderer.send('moveWindow',{x:moveX,y:moveY});
     }
-    document.onmouseup = function () {
+    document.onmouseup = function (e) {
+        e.preventDefault();
         //鼠标松开
         document.onmousemove = null;
     }

@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow,globalShortcut} = require('electron')
 const path = require('path')
 const { windowConfig } = require('./config')
 const ball = require('./ball')
@@ -16,12 +16,11 @@ function createWindow () {
   mainWindow.loadFile(html)
   global.mainWindow = mainWindow;
 
-  mainWindow.on('blur',()=>{
-    setTimeout(()=>{
-      mainWindow.hide();
-    },500)
-      
-  })
+  // mainWindow.on('blur',()=>{
+  //   setTimeout(()=>{
+  //     mainWindow.hide();
+  //   },500)
+  // })
 }
 
 app.whenReady().then(() => {

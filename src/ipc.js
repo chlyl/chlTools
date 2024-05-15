@@ -11,3 +11,7 @@ ipcMain.on('show',(e,message)=>{
     e.preventDefault();
     global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
 })
+
+ipcMain.on('hide',(e,message)=>{
+    global.mainWindow.hide()
+})

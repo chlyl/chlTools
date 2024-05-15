@@ -18,7 +18,3 @@ tray.setToolTip('chlTools');
 globalShortcut.register('Ctrl+Space', () => {
   global.mainWindow.isVisible() ? global.mainWindow.hide() : global.mainWindow.show();
 })
-
-globalShortcut.register('ESC',()=>{
-  global.mainWindow.hide();
-})
